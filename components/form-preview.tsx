@@ -26,10 +26,17 @@ export default function FormPreview({
     if (requiredQuestions.length === 0) return 0;
 
     const answeredQuestions = requiredQuestions.filter(
-      (q) => answers[q.id] && answers[q.id].trim()
+      (q) =>
+        answers[q.id] !== undefined &&
+        answers[q.id] !== null &&
+        answers[q.id].trim() !== ""
     );
 
-    setProgress((answeredQuestions.length / requiredQuestions.length) * 100);
+    const progress = Math.round(
+      (answeredQuestions.length / requiredQuestions.length) * 100
+    );
+    setProgress(progress);
+    return progress;
   };
 
   const updateAnswer = (questionId: number, value: string) => {
@@ -49,14 +56,20 @@ export default function FormPreview({
         return (
           <Input
             value={answers[question.id] || ""}
-            onChange={(e) => updateAnswer(question.id, e.target.value)}
+            onChange={(e) => {
+              updateAnswer(question.id, e.target.value);
+              calculateProgress();
+            }}
           />
         );
       case "long":
         return (
           <Textarea
             value={answers[question.id] || ""}
-            onChange={(e) => updateAnswer(question.id, e.target.value)}
+            onChange={(e) => {
+              updateAnswer(question.id, e.target.value);
+              calculateProgress();
+            }}
             className="resize-none"
           />
         );
@@ -83,7 +96,10 @@ export default function FormPreview({
           <Input
             type="number"
             value={answers[question.id] || ""}
-            onChange={(e) => updateAnswer(question.id, e.target.value)}
+            onChange={(e) => {
+              updateAnswer(question.id, e.target.value);
+              calculateProgress();
+            }}
           />
         );
       case "url":
@@ -91,7 +107,10 @@ export default function FormPreview({
           <Input
             type="url"
             value={answers[question.id] || ""}
-            onChange={(e) => updateAnswer(question.id, e.target.value)}
+            onChange={(e) => {
+              updateAnswer(question.id, e.target.value);
+              calculateProgress();
+            }}
           />
         );
       default:
@@ -130,6 +149,7 @@ export default function FormPreview({
         className="place-self-end bg-[#00AA45] border border-[#1E874B] hover:bg-[#1E874B]"
         disabled={Object.keys(answers).length !== questions.length}
       >
+        <span className="hidden">{calculateProgress()}</span>
         Submit Form
       </Button>
     </form>
