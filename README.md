@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Peerlist Form Builder
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Peerlist Form Builder is a dynamic, interactive web application for creating and previewing custom forms with a drag-and-drop interface. Built with Next.js and TypeScript, this tool allows users to easily create, customize, and preview forms with various question types.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Drag and Drop Interface**: Easily rearrange form questions
+- **Multiple Question Types**: Support for various question formats
+- **Real-time Preview**: Instantly see how your form will look
+- **Form Validation**: Ensure form completeness before preview
+- **Responsive Design**: Works seamlessly across devices
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: Next.js (with Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI, Shadcn/ui
+- **Drag and Drop**: @dnd-kit/core and @dnd-kit/sortable
 
-## Learn More
+## 📦 Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js (v18 or later)
+- npm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+app/: Main application pages
+components/: Reusable React components
+constants/: Constant values and type definitions
+lib/: Utility functions and helpers
+public/: Static assets
