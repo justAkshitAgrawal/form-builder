@@ -27,8 +27,8 @@ Peerlist Form Builder is a dynamic, interactive web application for creating and
 
 ## 📝 Project Structure
 
-app/: Main application pages
-components/: Reusable React components
-constants/: Constant values and type definitions
-lib/: Utility functions and helpers
-public/: Static assets
+- app/: Main application pages
+- components/: Reusable React components
+- constants/: Constant values and type definitions
+- lib/: Utility functions and helpers
+- public/: Static assets
